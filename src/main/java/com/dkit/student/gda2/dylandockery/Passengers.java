@@ -6,9 +6,9 @@ public class Passengers
     private String idNumber;
     private String email;
     private int telephoneNumber;
-    PassengerLocation passengersHome;
+    private Coordinates passengersHome;
 
-    public Passengers(String name, String idNumber, String email, int telephoneNumber, PassengerLocation passengersHome)
+    public Passengers(String name, String idNumber, String email, int telephoneNumber, Coordinates passengersHome)
     {
         this.name = name;
         this.idNumber = idNumber;
@@ -37,7 +37,7 @@ public class Passengers
         return telephoneNumber;
     }
 
-    public PassengerLocation getPassengersHome()
+    public Coordinates getPassengersHome()
     {
         return passengersHome;
     }

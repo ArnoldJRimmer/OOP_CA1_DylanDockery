@@ -3,9 +3,9 @@ package com.dkit.student.gda2.dylandockery;
 public class FourByFour extends Vehicle
 {
 
-    public FourByFour(String make, String model, int milesPerKwh, int numberOfSeats, String registrationNumber, double costPerMile, String lastServiceDate, int mileage, DepoLocation currentLocation)
+    public FourByFour(String make, String model, int milesPerKwh, int numberOfSeats, String registrationNumber, String lastServiceDate, int mileage, Coordinates currentLocation)
     {
-        super(make, model, milesPerKwh, numberOfSeats, registrationNumber, costPerMile, lastServiceDate, mileage, currentLocation);
+        super(make, model, milesPerKwh, numberOfSeats, registrationNumber,Constants.FOUR_BY_FOUR_COST_PER_MILE, lastServiceDate, mileage, currentLocation);
     }
 
 

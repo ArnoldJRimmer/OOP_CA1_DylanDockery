@@ -10,9 +10,11 @@ public class Vehicle
     private double costPerMile;
     private String lastServiceDate;
     private int mileage;
-    private DepoLocation currentLocation;
+    private Coordinates currentLocation;
 
-    public Vehicle(String make, String model, int milesPerKwh, int numberOfSeats, String registrationNumber, double costPerMile, String lastServiceDate, int mileage, DepoLocation currentLocation)
+
+
+    public Vehicle(String make, String model, int milesPerKwh, int numberOfSeats, String registrationNumber, double costPerMile, String lastServiceDate, int mileage, Coordinates currentLocation)
     {
         this.make = make;
         this.model = model;
@@ -65,9 +67,27 @@ public class Vehicle
         return mileage;
     }
 
-    public DepoLocation getCurrentLocation()
+    public Coordinates getCurrentLocation()
     {
         return currentLocation;
     }
 
+
+    public double workOutCostPerMile(double costPerMile)
+    {
+        return 0;
+    }
+
+    @Override
+    public String toString()
+    {
+        return  "Make: " + make + '\'' + " Model: " + model + '\'' +
+                " MilesPerKwh: " + milesPerKwh +
+                " NumberOfSeats: " + numberOfSeats +
+                " RegistrationNumber='" + registrationNumber + '\t' +
+                " CostPerMile: " + costPerMile +
+                " Last Service Date='" + lastServiceDate + '\t' +
+                " Mileage: " + mileage +
+                " CurrentLocation: " + currentLocation ;
+    }
 }

@@ -4,9 +4,9 @@ public class Van extends Vehicle
 {
     private int loadingCapacity;
 
-    public Van(String make, String model, int milesPerKwh, int numberOfSeats, String registrationNumber, double costPerMile, String lastServiceDate, int mileage, DepoLocation currentLocation, int loadingCapacity)
+    public Van(String make, String model, int milesPerKwh, int numberOfSeats, String registrationNumber, String lastServiceDate, int mileage, Coordinates currentLocation, int loadingCapacity)
     {
-        super(make, model, milesPerKwh, numberOfSeats, registrationNumber, costPerMile, lastServiceDate, mileage, currentLocation);
+        super(make, model, milesPerKwh, numberOfSeats, registrationNumber,Constants.VAN_COST_PER_MILE, lastServiceDate, mileage, currentLocation);
         this.loadingCapacity = loadingCapacity;
     }
 
@@ -14,4 +14,6 @@ public class Van extends Vehicle
     {
         return loadingCapacity;
     }
+
+
 }

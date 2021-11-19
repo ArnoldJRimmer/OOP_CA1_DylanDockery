@@ -1,11 +1,11 @@
 package com.dkit.student.gda2.dylandockery;
 
-public class DepoLocation
+public class Coordinates
 {
     private double longitude;
     private double latitude;
 
-    public DepoLocation(double longitude, double latitude)
+    public Coordinates(double longitude, double latitude)
     {
         this.longitude = longitude;
         this.latitude = latitude;
