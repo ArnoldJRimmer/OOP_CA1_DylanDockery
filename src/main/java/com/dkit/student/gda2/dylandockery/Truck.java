@@ -14,4 +14,6 @@ public class Truck extends Vehicle
     {
         return loadingCapacity;
     }
+
+
 }

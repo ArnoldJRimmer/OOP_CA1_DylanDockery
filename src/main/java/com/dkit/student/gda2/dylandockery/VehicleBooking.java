@@ -19,6 +19,7 @@ public class VehicleBooking
         this.bookingEnd = bookingEnd;
     }
 
+
     public int getBookingId()
     {
         return bookingId;
@@ -48,4 +49,17 @@ public class VehicleBooking
     {
         return bookingEnd;
     }
+
+    private double workOutCost(double bookingCost)
+    {
+        //To do work out the cost of travel based on vehicle, and distance
+        return 0;
+    }
+
+    public static VehicleBooking createNewBooking(int bookingId,int date,int time,double bookingCost,Coordinates bookingStart,Coordinates bookingEnd)
+    {
+        return new VehicleBooking(bookingId,date,time,bookingCost,bookingStart,bookingEnd);
+    }
+
+
 }

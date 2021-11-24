@@ -1,7 +1,8 @@
 package com.dkit.student.gda2.dylandockery;
 
-public class Vehicle
-{
+import javax.swing.*;
+
+public class Vehicle {
     private String make;
     private String model;
     private int milesPerKwh;
@@ -81,13 +82,16 @@ public class Vehicle
     @Override
     public String toString()
     {
-        return  "Make: " + make + '\'' + " Model: " + model + '\'' +
-                " MilesPerKwh: " + milesPerKwh +
-                " NumberOfSeats: " + numberOfSeats +
-                " RegistrationNumber='" + registrationNumber + '\t' +
-                " CostPerMile: " + costPerMile +
-                " Last Service Date='" + lastServiceDate + '\t' +
-                " Mileage: " + mileage +
-                " CurrentLocation: " + currentLocation ;
+        System.out.println("*********************************************");
+        return
+                "Make:\t" + make +
+                "\nModel:\t" + model +
+                "\nMilesPerKwh:\t" + milesPerKwh +
+                "\nNumberOfSeats:\t" + numberOfSeats +
+                "\nRegistrationNumber:\t" + registrationNumber +
+                "\nCostPerMile:\t" + costPerMile +
+                "\nLastServiceDate:\t" + lastServiceDate +
+                "\nMileage:\t" + mileage +
+                "\nCurrentLocation:\t" + currentLocation;
     }
 }
