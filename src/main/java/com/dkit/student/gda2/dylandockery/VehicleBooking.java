@@ -56,10 +56,7 @@ public class VehicleBooking
         return 0;
     }
 
-    public static VehicleBooking createNewBooking(int bookingId,int date,int time,double bookingCost,Coordinates bookingStart,Coordinates bookingEnd)
-    {
-        return new VehicleBooking(bookingId,date,time,bookingCost,bookingStart,bookingEnd);
-    }
+
 
 
 }

@@ -1,57 +1,54 @@
 package com.dkit.student.gda2.dylandockery;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Fleet
 {
-    private static List<Vehicle> vehicleList = new ArrayList<Vehicle>();
-    private static Car cars;
-    private static Van vans;
-    private static Truck trucks;
-    private static FourByFour fourByFours;
-    private static Coordinates test = new Coordinates(37983,4567);
+    private final ArrayList<Vehicle> vehicleDatabase;
 
-    public void printFleet()
+    public Fleet(String fileName)
     {
-        create50Cars(vehicleList);
-        create10Vans(vehicleList);
-        printFleet(vehicleList);
+        this.vehicleDatabase = new ArrayList<>();
+        readVehiclesFromFile(fileName);
     }
 
-    private static void printFleet(List<Vehicle> vehicleList)
+    public void printAllVehiclesInFleet()
     {
-        for(Vehicle vehiclesInFleet:vehicleList)
+        for (Vehicle vehicles:vehicleDatabase)
         {
-            System.out.println(vehiclesInFleet.toString());
+            System.out.println(vehicles.toString());
         }
     }
 
-    private static void create50Cars(List vehicleList)
+    private void readVehiclesFromFile(String fileName)
     {
-        cars = new Car("Ford","Focus",50,4,"2007-D-8945","08-08-2013",3456,test);
-        vehicleList.add(cars);
-        cars = new Car("Ford","Focus",50,4,"2007-D-8945","08-08-2013",3456,test);
-        vehicleList.add(cars);
+            BufferedReader myReader = null;
+            try
+            {
+                String readCurrentLine;
+                myReader = new BufferedReader(new FileReader(fileName));
 
+                while((readCurrentLine = myReader.readLine()) != null)
+                {
+                    String[] data = readCurrentLine.split(",");
+                    System.out.println(readCurrentLine);
+                }
+            }
+            catch(IOException ioe )
+            {
+                ioe.printStackTrace();
+            }
     }
 
-    private static void create10Vans(List vehicleList)
-    {
-        vans = new Van("Ford","pocus",50,4,"2007-D-8945","08-08-2013",3456,test,254);
-        vehicleList.add(vans);
-    }
 
-    private static void create10Trucks(List vehicleList)
-    {
 
-    }
-
-    private static void create10_4x4s()
-    {
-
-    }
-
+    //Add a vehicle
+    //Edit the details of a vehicle
+    //Remove a vehicle
 
 }
 

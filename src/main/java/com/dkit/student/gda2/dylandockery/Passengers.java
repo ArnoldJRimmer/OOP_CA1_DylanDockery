@@ -8,14 +8,16 @@ public class Passengers
     private int telephoneNumber;
     private Coordinates passengersHome;
 
-    public Passengers(String name, String idNumber, String email, int telephoneNumber, Coordinates passengersHome)
+    public Passengers(String name, String idNumber, String email, int telephoneNumber, double latitude,double longitude)
     {
         this.name = name;
         this.idNumber = idNumber;
         this.email = email;
         this.telephoneNumber = telephoneNumber;
-        this.passengersHome = passengersHome;
+        this.passengersHome = new Coordinates(latitude, longitude);
     }
+
+
 
     public String getName()
     {
@@ -41,4 +43,8 @@ public class Passengers
     {
         return passengersHome;
     }
+
+
+
+
 }

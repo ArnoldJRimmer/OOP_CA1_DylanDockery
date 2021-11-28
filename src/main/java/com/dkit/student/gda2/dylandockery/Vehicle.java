@@ -1,8 +1,9 @@
 package com.dkit.student.gda2.dylandockery;
 
-import javax.swing.*;
 
-public class Vehicle {
+
+public class Vehicle
+{
     private String make;
     private String model;
     private int milesPerKwh;
