@@ -1,19 +1,24 @@
 package com.dkit.student.gda2.dylandockery;
 
-import java.io.*;
+
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
+
 
 public class PassengerDatabase
 {
     private final ArrayList<Passengers> passengerDatabase;
+    private static ReadFiles readFiles = new ReadFiles();
+    private static Scanner userInput;
+    private static WriteFiles writeFiles = new WriteFiles();
 
     public PassengerDatabase(String fileName)
     {
         this.passengerDatabase = new ArrayList<>();
-        readPassengersFromFile(fileName);
+        addingAPassenger(passengerDatabase);
+        readFiles.readFromFile(fileName);
     }
 
     public List<Passengers> getAllPassengers()
@@ -21,39 +26,52 @@ public class PassengerDatabase
         return this.passengerDatabase;
     }
 
-    private void readPassengersFromFile(String fileName)
+    // Need to tidy this up
+    private static void addingAPassenger(ArrayList<Passengers>newPassenger)
     {
-        try
+        userInput = new Scanner(System.in);
+        String name;
+        String email;
+        int phoneNumber;
+        String idNumber;
+        double longitude;
+        double latitude;
+        boolean exit = false;
+        while(exit == false)
         {
-            Scanner reader = new Scanner(new File(fileName));
-            reader.useDelimiter(",");
-            System.out.println("Works");
+            System.out.printf("Please enter the <Name> of the passenger you would like to add: > \n");
+            name = userInput.next();
+            System.out.printf("Please enter the <Id.Number> of the passenger: > \n");
+            idNumber = userInput.next();
+            System.out.printf("\nPlease enter the <Email> of the passenger: > \n");
+            email = userInput.next();
+            System.out.printf("\nPlease enter the <Phone.No> of the passenger: > \n");
+            phoneNumber = userInput.nextInt();
+            System.out.printf("\nPlease enter the <Latitude Position> of the passenger: > \n");
+            latitude = userInput.nextDouble();
+            System.out.printf("\nPlease enter the <Longitude Position> of the passenger: > \n ");
+            longitude = userInput.nextDouble();
 
-            while(reader.hasNext())
-            {
-                String name = reader.next();
-                String idNumber = reader.next();
-                String email = reader.next();
-                int telephoneNumber = reader.nextInt();
-                double latitude = reader.nextDouble();
-                double longitude = reader.nextDouble();
+            newPassenger.add(new Passengers(name,idNumber,email,phoneNumber,latitude,longitude));
 
-                passengerDatabase.add(new Passengers(name, idNumber, email, telephoneNumber, latitude, longitude));
-            }
-            reader.close();
-        }
-        catch(FileNotFoundException fnfe)
-        {
-            fnfe.printStackTrace();
+            writeFiles.writeToFile("PassengersData.txt",newPassenger);
+            exit = true;
         }
 
 
 
     }
 
-    public void addingAPassenger()
+    private static void editPassengerDetails(ArrayList<Passengers> editPassengerDetails)
     {
+        //The user types in the name of the field they would like to edit
 
+        boolean exit = false;
+        while(exit = false)
+        {
+            System.out.println("What passenger would you like to edit?:");
+        }
     }
+
 
 }

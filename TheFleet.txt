@@ -1,1 +1,44 @@
-This, is, a, test,
+Make    Model   MilesPerKwh No.ofSeats  Reg.No  CostPerMile LastServicedate Milage  GPSLocation,
+================================================================================================
+Audi
+BMW
+Buick
+Cadillac
+Chevrolet
+Chrysler
+Dodge
+Ferrari
+Ford
+GM
+GEM
+GMC
+Honda
+Hummer
+Hyundai
+Infiniti
+Isuzu
+Jaguar
+Jeep
+Kia
+Lamborghini
+Land Rover
+Lexus
+Lincoln
+Lotus
+Mazda
+Mercedes-Benz
+Mercury
+Mitsubishi
+Nissan
+Oldsmobile
+Peugeot
+Pontiac
+Porsche
+Regal
+Saab
+Saturn
+Subaru
+Suzuki
+Toyota
+Volkswagen
+Volvo

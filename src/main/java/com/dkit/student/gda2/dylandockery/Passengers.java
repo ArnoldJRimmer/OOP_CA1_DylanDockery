@@ -44,7 +44,9 @@ public class Passengers
         return passengersHome;
     }
 
-
-
-
+    @Override
+    public String toString()
+    {
+        return""+name+"  "+idNumber + "" + email +""+ telephoneNumber +""+ passengersHome +",";
+    }
 }

@@ -20,4 +20,10 @@ public class Coordinates
     {
         return latitude;
     }
+
+    @Override
+    public String toString()
+    {
+        return " "+longitude+" "+latitude;
+    }
 }

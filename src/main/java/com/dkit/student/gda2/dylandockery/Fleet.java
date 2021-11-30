@@ -1,19 +1,19 @@
 package com.dkit.student.gda2.dylandockery;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Fleet
 {
     private final ArrayList<Vehicle> vehicleDatabase;
+    private static ReadFiles readFiles = new ReadFiles();
 
     public Fleet(String fileName)
     {
         this.vehicleDatabase = new ArrayList<>();
-        readVehiclesFromFile(fileName);
+        readFiles.readFromFile(fileName);
     }
 
     public void printAllVehiclesInFleet()
@@ -24,31 +24,9 @@ public class Fleet
         }
     }
 
-    private void readVehiclesFromFile(String fileName)
-    {
-            BufferedReader myReader = null;
-            try
-            {
-                String readCurrentLine;
-                myReader = new BufferedReader(new FileReader(fileName));
-
-                while((readCurrentLine = myReader.readLine()) != null)
-                {
-                    String[] data = readCurrentLine.split(",");
-                    System.out.println(readCurrentLine);
-                }
-            }
-            catch(IOException ioe )
-            {
-                ioe.printStackTrace();
-            }
-    }
 
 
 
-    //Add a vehicle
-    //Edit the details of a vehicle
-    //Remove a vehicle
 
 }
 
