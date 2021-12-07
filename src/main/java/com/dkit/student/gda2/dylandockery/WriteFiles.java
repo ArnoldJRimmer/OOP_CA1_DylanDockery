@@ -21,8 +21,41 @@ public class WriteFiles
                 myFile.createNewFile();
             }
 
+            BufferedWriter writesToFile = new BufferedWriter(new FileWriter(myFile));
+
+            for(int i = 0; i<=passingValue.size()-1; i++)
+            {
+                writesToFile.write(passingValue.get(i).toString() + "\n");
+            }
+
+            writesToFile.close();
+
+        }
+        catch (IOException ioe)
+        {
+            ioe.printStackTrace();
+        }
+    }
+
+    public void writeToFileAddToEnd(String fileName, ArrayList<Passengers> passingValue)
+    {
+
+        try
+        {
+            File myFile = new File(fileName);
+
+            if(!myFile.exists())
+            {
+                myFile.createNewFile();
+            }
+
             BufferedWriter writesToFile = new BufferedWriter(new FileWriter(myFile,true));
-            writesToFile.write(passingValue.toString());
+
+            for(int i = 0; i<=passingValue.size()-1; i++)
+            {
+                writesToFile.write(passingValue.get(i).toString() + "\n");
+            }
+
             writesToFile.close();
 
         }

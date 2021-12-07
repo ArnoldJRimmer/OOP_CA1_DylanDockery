@@ -24,6 +24,11 @@ public class Passengers
         return name;
     }
 
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
     public String getIdNumber()
     {
         return idNumber;
@@ -44,9 +49,26 @@ public class Passengers
         return passengersHome;
     }
 
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setTelephoneNumber(int telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public void setPassengersHome(double longitude,double latitude)
+    {
+        this.passengersHome = new Coordinates(longitude, latitude);
+    }
+
     @Override
     public String toString()
     {
-        return""+name+"  "+idNumber + "" + email +""+ telephoneNumber +""+ passengersHome +",";
+        return""+name+","+idNumber +","+email+","+ telephoneNumber +","+ passengersHome;
     }
 }

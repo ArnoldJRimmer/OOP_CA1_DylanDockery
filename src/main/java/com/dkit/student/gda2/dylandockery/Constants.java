@@ -7,5 +7,6 @@ public class Constants
     public static final double VAN_COST_PER_MILE = 6.00;
     public static final double TRUCK_COST_PER_MILE = 10.00;
     public static final int INDEX_0 = 0;
+    public static final int INCREMENTFROM_0 = 0;
 
 }

@@ -9,14 +9,14 @@ public class VehicleBooking
     private Coordinates bookingStart;
     private Coordinates bookingEnd;
 
-    public VehicleBooking(int bookingId, int date, int time, double bookingCost, Coordinates bookingStart, Coordinates bookingEnd)
+    public VehicleBooking(int bookingId, int date, int time, double bookingCost,double longitude,double latitude,double latitudeEnd,double longitudeEnd)
     {
         this.bookingId = bookingId;
         this.date = date;
         this.time = time;
         this.bookingCost = bookingCost;
-        this.bookingStart = bookingStart;
-        this.bookingEnd = bookingEnd;
+        this.bookingStart = new Coordinates(latitude,longitude);
+        this.bookingEnd = new Coordinates(latitudeEnd,longitudeEnd);
     }
 
 
@@ -52,11 +52,20 @@ public class VehicleBooking
 
     private double workOutCost(double bookingCost)
     {
-        //To do work out the cost of travel based on vehicle, and distance
+        //To do work out the cost of travel based on vehicle, and distance, and passenger distance
         return 0;
     }
 
-
-
-
+    @Override
+    public String toString()
+    {
+        return "VehicleBooking{" +
+                "bookingId=" + bookingId +
+                ", date=" + date +
+                ", time=" + time +
+                ", bookingCost=" + bookingCost +
+                ", bookingStart=" + bookingStart +
+                ", bookingEnd=" + bookingEnd +
+                '}';
+    }
 }

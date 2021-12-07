@@ -16,7 +16,7 @@ public class Vehicle
 
 
 
-    public Vehicle(String make, String model, int milesPerKwh, int numberOfSeats, String registrationNumber, double costPerMile, String lastServiceDate, int mileage, Coordinates currentLocation)
+    public Vehicle(String make, String model, int milesPerKwh, int numberOfSeats, String registrationNumber, double costPerMile, String lastServiceDate, int mileage, double latitude,double longitude)
     {
         this.make = make;
         this.model = model;
@@ -26,7 +26,7 @@ public class Vehicle
         this.costPerMile = costPerMile;
         this.lastServiceDate = lastServiceDate;
         this.mileage = mileage;
-        this.currentLocation = currentLocation;
+        this.currentLocation = new Coordinates(latitude,longitude);
     }
 
     public String getMake()

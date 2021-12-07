@@ -13,7 +13,7 @@ public class Fleet
     public Fleet(String fileName)
     {
         this.vehicleDatabase = new ArrayList<>();
-        readFiles.readFromFile(fileName);
+        readFiles.readFromFileVehicles("TheFleet.txt",vehicleDatabase);
     }
 
     public void printAllVehiclesInFleet()
@@ -22,6 +22,11 @@ public class Fleet
         {
             System.out.println(vehicles.toString());
         }
+    }
+
+    public List<Vehicle> getAllVehicles()
+    {
+        return this.vehicleDatabase;
     }
 
 
