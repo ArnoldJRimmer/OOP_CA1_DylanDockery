@@ -3,22 +3,35 @@ package com.dkit.student.gda2.dylandockery;
 public class VehicleBooking
 {
     private int bookingId;
+    private String passengerId;
+    private String vehicleId;
     private int date;
     private int time;
     private double bookingCost;
     private Coordinates bookingStart;
     private Coordinates bookingEnd;
 
-    public VehicleBooking(int bookingId, int date, int time, double bookingCost,double longitude,double latitude,double latitudeEnd,double longitudeEnd)
+    public VehicleBooking(int bookingId, String passengerId, String vehicleId, int date, int time, double bookingCost, double startLatitude,double startLongitude,double endLatitude, double endLongitude)
     {
         this.bookingId = bookingId;
+        this.passengerId = passengerId;
+        this.vehicleId = vehicleId;
         this.date = date;
         this.time = time;
         this.bookingCost = bookingCost;
-        this.bookingStart = new Coordinates(latitude,longitude);
-        this.bookingEnd = new Coordinates(latitudeEnd,longitudeEnd);
+        this.bookingStart = new Coordinates(startLatitude,startLongitude);
+        this.bookingEnd = new Coordinates(endLatitude,endLongitude);
     }
 
+    public String getPassengerId()
+    {
+        return passengerId;
+    }
+
+    public String getVehicleId()
+    {
+        return vehicleId;
+    }
 
     public int getBookingId()
     {
@@ -59,13 +72,7 @@ public class VehicleBooking
     @Override
     public String toString()
     {
-        return "VehicleBooking{" +
-                "bookingId=" + bookingId +
-                ", date=" + date +
-                ", time=" + time +
-                ", bookingCost=" + bookingCost +
-                ", bookingStart=" + bookingStart +
-                ", bookingEnd=" + bookingEnd +
-                '}';
+        return bookingId +","+passengerId+","+vehicleId+","+date+","+time+","+bookingCost+","+bookingStart+","+bookingEnd ;
+
     }
 }

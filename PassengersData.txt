@@ -5,3 +5,5 @@ Frank,Pass14,Dockery@gmail.com,8799909, 98789.0,23545.0
 Frank,Pass15,Dockery@gmail.com,8799909, 98789.0,23545.0
 Luigi,Pass16,Timmy@gmail.com,8911231, 9.0,3.0
 Dylan,Pass17,Frank@gmail.com,89440234, 7.0,6.0
+Ben,Pass18,BenMcquaile@gmail.com,980987, 9878987.0,988080.0
+Niall,Pass19,Niall@gmail.com,999009, 9090.0,999090.0

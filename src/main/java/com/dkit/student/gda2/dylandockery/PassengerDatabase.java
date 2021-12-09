@@ -2,6 +2,7 @@ package com.dkit.student.gda2.dylandockery;
 
 
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,17 +18,45 @@ public class PassengerDatabase
     public PassengerDatabase(String fileName)
     {
         this.passengerDatabase = new ArrayList<>();
-        //addingAPassenger(passengerDatabase);
         readFiles.readFromFilePassengers(fileName,passengerDatabase);
-        //editPassengerDetails(passengerDatabase);
-        //removePassenger(passengerDatabase);
+        readFiles.readFromFile("PassengerMenu.txt");
+        passengerMenu();
 
     }
-
     public List<Passengers> getAllPassengers()
     {
         return this.passengerDatabase;
     }
+
+    private void passengerMenu()
+    {
+        int menuOptions;
+        menuOptions = userInput.nextInt();
+        switch (menuOptions)
+        {
+
+            case 1:
+            {
+                addingAPassenger(passengerDatabase);
+                break;
+            }
+            case 2:
+            {
+                editPassengerDetails(passengerDatabase);
+            }
+            case 3:
+            {
+                removePassenger(passengerDatabase);
+            }
+            case 0:
+            {
+                App.mainMenu();
+            }
+        }
+
+    }
+
+
 
     // Need to tidy this up
     private static void addingAPassenger(ArrayList<Passengers>newPassenger)
@@ -39,42 +68,43 @@ public class PassengerDatabase
         String idNumber;
         double longitude;
         double latitude;
-        boolean exit = false;
-        while(exit == false)
-        {
-            System.out.printf("Please enter the <Name> of the passenger you would like to add: > \n");
-            name = userInput.next();
 
-            System.out.printf("Please enter the <Id.Number> of the passenger: > \n");
-            idNumber = userInput.next();
+        addPassangerMessages("<Name>");
+        name = userInput.next();
 
-            System.out.printf("\nPlease enter the <Email> of the passenger: > \n");
-            email = userInput.next();
+        addPassangerMessages("<Id_Number>");
+        idNumber = userInput.next();
 
-            System.out.printf("\nPlease enter the <Phone.No> of the passenger: > \n");
-            phoneNumber = userInput.nextInt();
+        addPassangerMessages("<Email>");
+        email = userInput.next();
+        compareRecords(email,newPassenger);
 
-            System.out.printf("\nPlease enter the <Latitude Position> of the passenger: > \n");
-            latitude = userInput.nextDouble();
+        addPassangerMessages("<Phone_Num>");
+        phoneNumber = userInput.nextInt();
+        compareRecords(phoneNumber,newPassenger);
 
-            System.out.printf("\nPlease enter the <Longitude Position> of the passenger: > \n");
-            longitude = userInput.nextDouble();
 
-            newPassenger.add(new Passengers(name,idNumber,email,phoneNumber,latitude,longitude));
+        addPassangerMessages("<Latitude>");
+        latitude = userInput.nextDouble();
 
-            writeFiles.writeToFileAddToEnd("PassengersData.txt",newPassenger);
-            exit = true;
-        }
+        addPassangerMessages("<Longitude>");
+        longitude = userInput.nextDouble();
+
+        newPassenger.add(new Passengers(name,idNumber,email,phoneNumber,latitude,longitude));
+
+        writeFiles.writeToFile("PassengersData.txt",newPassenger);
 
 
     }
 
-    //Removes passengers by allowing the user to search for the passenger using there id number
+    //Removes passengers by allowing the user to search for the passenger using their id number
     private static void removePassenger(ArrayList<Passengers> removePassenger)
     {
         String idNumber = "";
+
         System.out.printf("Please enter the <Id number> of the passenger you would like to remove: ");
         idNumber = userInput.next();
+
         loopsThroughArraylist(removePassenger,idNumber);
 
     }
@@ -95,7 +125,6 @@ public class PassengerDatabase
     //Edit the different items such as name,email etc of a passenger in the arraylist
     private static void editAttriubtesOfPassengers(ArrayList<Passengers> editingAttributes,String idNumber)
     {
-        //Tidy this up
         for(int i = 0; i<= editingAttributes.size();i++)
         {
             if(idNumber.equals(editingAttributes.get(i).getIdNumber()))
@@ -107,7 +136,7 @@ public class PassengerDatabase
                 {
                     case 1:
                     {
-                        System.out.println("Please enter the passengers new name: >");
+                        editPassengerMessage("<Name>");
                         String name = userInput.next();
                         editingAttributes.get(i).setName(name);
                         break;
@@ -115,7 +144,7 @@ public class PassengerDatabase
 
                     case 2:
                     {
-                        System.out.println("Please enter the passengers new email: >");
+                        editPassengerMessage("<Email>");
                         String newEmail = userInput.next();
                         editingAttributes.get(i).setEmail(newEmail);
                         break;
@@ -123,7 +152,7 @@ public class PassengerDatabase
 
                     case 3:
                     {
-                        System.out.println("Please enter the passengers new phone number: >");
+                        editPassengerMessage("<Phone.No>");
                         int newPhoneNo = userInput.nextInt();
                         editingAttributes.get(i).setTelephoneNumber(newPhoneNo);
                         break;
@@ -131,10 +160,10 @@ public class PassengerDatabase
 
                     case 4:
                     {
-                        System.out.println("Please enter the passengers new Latitude value");
+                        editPassengerMessage("<Latitude>");
                         double newLatitude = userInput.nextDouble();
 
-                        System.out.println("Please enter the passengers new Longitude value");
+                        editPassengerMessage("<Longitude>");
                         double newLongitude = userInput.nextDouble();
 
                         editingAttributes.get(i).setPassengersHome(newLatitude,newLongitude);
@@ -154,24 +183,45 @@ public class PassengerDatabase
     }
 
 
-    private static void compareRecords(String email, int telephoneNo,ArrayList<Passengers> checkForDuplicates)
+    private static void compareRecords(String passingValue,ArrayList<Passengers> checkForDuplicates)
     {
         boolean exit = false;
         int i = Constants.INCREMENTFROM_0;
         while(!exit)
         {
-            if(email.equals(checkForDuplicates.get(i).getEmail()) ||
-                    telephoneNo == (checkForDuplicates.get(i).getTelephoneNumber()))
+            if(passingValue.equals(checkForDuplicates.get(i).getEmail()))
             {
-                System.out.println("The record you are trying to enter already exists");
-                exit = true;
+                System.out.printf("The email you are trying to enter already exists,Please try again:> ");
+                i++;
             }
             else
             {
-                i++;
+                exit = true;
+
             }
         }
     }
+
+    private static void compareRecords(int passingValue,ArrayList<Passengers> checkForDuplicates)
+    {
+        boolean exit = false;
+        int i = Constants.INCREMENTFROM_0;
+        while(!exit)
+        {
+            if(passingValue == (checkForDuplicates.get(i).getTelephoneNumber()))
+            {
+                System.out.printf("The phone number you are trying to enter already exists,Please try again:> ");
+                i++;
+            }
+            else
+            {
+                exit = true;
+
+            }
+        }
+    }
+
+
 
     private static void loopsThroughArraylist(ArrayList<Passengers> removePassenger, String idNumber)
     {
@@ -192,10 +242,15 @@ public class PassengerDatabase
         }
     }
 
-    @Override
-    public String toString()
+    private static PrintStream editPassengerMessage(String message)
     {
-        return "" + passengerDatabase +"\n";
-
+        return System.out.printf("Please enter the passengers new :" + message + ":");
     }
+
+    private static PrintStream addPassangerMessages(String message)
+    {
+        return System.out.printf("Please enter the passengers" + message + "you would like to add:>");
+    }
+
+
 }

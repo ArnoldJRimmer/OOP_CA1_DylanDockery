@@ -45,13 +45,15 @@ public class ReadFiles
                 String indexer[] = newLine.split(",");
                 bookings.add(new VehicleBooking(
                         Integer.parseInt(indexer[0]),
-                        Integer.parseInt(indexer[1]),
-                        Integer.parseInt(indexer[2]),
-                        Double.parseDouble(indexer[3]),
-                        Double.parseDouble(indexer[4]),
+                        indexer[1],
+                        indexer[2],
+                        Integer.parseInt(indexer[3]),
+                        Integer.parseInt(indexer[4]),
                         Double.parseDouble(indexer[5]),
                         Double.parseDouble(indexer[6]),
-                        Double.parseDouble(indexer[7])));
+                        Double.parseDouble(indexer[7]),
+                        Double.parseDouble(indexer[8]),
+                        Double.parseDouble(indexer[9])));
             }
             reader.close();
         }
@@ -90,6 +92,24 @@ public class ReadFiles
             //e.printStackTrace();
         }
 
+    }
+
+    public void readFromFile(String fileName)
+    {
+        BufferedReader reader = null;
+        try
+        {
+            reader = new BufferedReader(new FileReader(fileName));
+            while((reader.readLine()) != null)
+            {
+               reader.readLine();
+            }
+            reader.close();
+        }
+        catch (IOException e)
+        {
+
+        }
     }
 
 

@@ -83,16 +83,16 @@ public class Vehicle
     @Override
     public String toString()
     {
-        System.out.println("*********************************************");
+        //For loop here
         return
                 "Make:\t" + make +
-                "\nModel:\t" + model +
-                "\nMilesPerKwh:\t" + milesPerKwh +
-                "\nNumberOfSeats:\t" + numberOfSeats +
-                "\nRegistrationNumber:\t" + registrationNumber +
-                "\nCostPerMile:\t" + costPerMile +
-                "\nLastServiceDate:\t" + lastServiceDate +
-                "\nMileage:\t" + mileage +
-                "\nCurrentLocation:\t" + currentLocation;
+                "Model:\t" + model +
+                "MilesPerKwh:\t" + milesPerKwh +
+                "NumberOfSeats:\t" + numberOfSeats +
+                "RegistrationNumber:\t" + registrationNumber +
+                "CostPerMile:\t" + costPerMile +
+                "LastServiceDate:\t" + lastServiceDate +
+                "Mileage:\t" + mileage +
+                "CurrentLocation:\t" + currentLocation;
     }
 }
